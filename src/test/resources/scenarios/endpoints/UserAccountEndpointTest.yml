@@ -1,0 +1,168 @@
+shouldReturnCreatedWhenPostUserAccountRegister:
+  body: >-
+    {
+      "name" : "Carlos T. Damasceno",
+      "email" : "carlos@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnBadRequestWhenPostUserAccountWithPasswordThatNotMeetRequirements:
+  body: >-
+    {
+      "name" : "Carlos T. Damasceno",
+      "email" : "carlos@gmail.com",
+      "password" : "enha"
+    }
+
+shouldReturnConflictWhenPostAuthenticationRegisterWithAlreadyEmailRegistered:
+  body: >-
+    {
+      "name" : "Ruan Felipe",
+      "email" : "ruan@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForChangePassword:
+  body: >-
+    {
+      "email" : "duque@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnOkWhenPatchUserAccountChangePassword:
+  body: >-
+    {
+      "currentPassword" : "Senha#123",
+      "newPassword" : "Senha#1234",
+      "confirmPassword" : "Senha#1234"
+    }
+
+shouldReturnOkWhenPatchUserAccountChangePasswordByAdmin:
+  body: >-
+    {
+      "email" : "lanna@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForChangePasswordWhereConfirmationPasswordAndNewPasswordAreNotTheSame:
+  body: >-
+    {
+      "email" : "alice@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnBadRequestWhenPatchUserAccountChangePasswordWhereConfirmationPasswordAndNewPasswordAreNotTheSame:
+  body: >-
+    {
+      "currentPassword" : "Senha#123",
+      "newPassword" : "Senha#1234",
+      "confirmPassword" : "DiferenteSenha#1234"
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForChangePasswordWhereCurrentPasswordAndNewPasswordAreTheSame:
+  body: >-
+    {
+      "email" : "maria@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnBadRequestWhenPatchUserAccountChangePasswordWhereCurrentPasswordAndNewPasswordAreTheSame:
+  body: >-
+    {
+      "currentPassword" : "Senha#123",
+      "newPassword" : "Senha#123",
+      "confirmPassword" : "Senha#123"
+    } 
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForChangePasswordWhereNotAuthorize:
+  body: >-
+    {
+      "email" : "diego@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnBadRequestWhenPatchUserAccountChangePasswordWhereNotAuthorized:
+  body: >-
+    {
+      "currentPassword" : "Senha#123",
+      "newPassword" : "Senha#1234",
+      "confirmPassword" : "Senha#1234"
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForOkWhenPatchUserAccountAddUserRole:
+  body: >-
+    {
+      "email" : "cocota@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnOkWhenPatchUserAccountAddUserRole:
+  body: >-
+    {
+      "code": ["USER"]
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForOkWhenPatchUserAccountAddTwoUserRole:
+  body: >-
+    {
+      "email" : "lobo@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnOkWhenPatchUserAccountAddTwoUserRole:
+  body: >-
+    {
+      "code": ["USER", "ADMIN"]
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForConflictWhenPatchUserAccountAddUserRoleAlreadyHave:
+  body: >-
+    {
+      "email" : "arthur@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnConflictWhenPatchUserAccountAddUserRoleAlreadyHave:
+  body: >-
+    {
+      "code": ["ADMIN"]
+    } 
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForConflictWhenPatchUserAccountAddUserRoleNotFound:
+  body: >-
+    {
+      "email" : "sabrina@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnNotFoundWhenPatchUserAccountAddUserRoleNotFound:
+  body: >-
+    {
+      "code": ["USER_ADMIN"]
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForConflictWhenPatchUserAccountRemoveUserRole:
+  body: >-
+    {
+      "email" : "paolo@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnOkWhenPatchUserAccountRemoveUserRole:
+  body: >-
+    {
+      "code": ["USER"]
+    }
+
+shouldReturnOkWhenPostAuthenticationAuthenticateForConflictWhenPatchUserAccountRemoveUserRoleNotHave:
+  body: >-
+    {
+      "email" : "emanoele@gmail.com",
+      "password" : "Senha#123"
+    }
+
+shouldReturnBadRequestWhenPatchUserAccountRemoveUserRoleNotHave:
+  body: >-
+    {
+      "code": ["USER"]
+    }

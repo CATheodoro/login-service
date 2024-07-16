@@ -1,0 +1,13 @@
+shouldReturnCreatedWhenPostRoleSave:
+  body: >-
+    {
+      "code": "USER_PLUS",
+      "description": "Pouca permissão, com benefícios."
+    }
+
+shouldReturnConflictWhenPostRoleAlreadyExists:
+  body: >-
+    {
+      "code": "USER",
+      "description": "Pouca permissão"
+    }
